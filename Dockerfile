@@ -29,7 +29,7 @@ RUN mkdir -p /tmp/helm \
 # Install latest Terraform
 RUN mkdir -p /tmp/terraform \
     && cd /tmp/terraform \
-    && wget $(curl -sL https://releases.hashicorp.com/terraform/index.json | jq -r '.versions[].builds[].url' | sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n | egrep -v 'rc|beta|alpha' | egrep 'linux.*amd64' | tail -1) -O ./terraform.zip \
+    && wget https://releases.hashicorp.com/terraform/0.11.11/terraform_0.11.11_linux_amd64.zip -O ./terraform.zip \
     && unzip ./terraform.zip \
     && mv terraform /usr/local/bin/terraform
 
